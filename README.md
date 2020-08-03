@@ -3,8 +3,3 @@
 * write_and_read_should_make_buffer_empty
 * buffer_should_be_able_to_handle_more_than_10
 * buffer_that_become_full_again_should_return_full
-* 
-*
-*
-*
-*
