@@ -89,4 +89,21 @@ public class CircularBufferTest {
         assertEquals("A0",cb.readData());
     }
 
+    @Test
+    public void set_size_should_be_able_to_handle_more_data() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A"+i);
+        }
+        assertFalse(cb.writeData("Z"));
+        cb.setSize(15);
+        assertTrue(cb.writeData("Z"));
+        for(int i=0;i<10;i++) {
+            assertEquals("A"+i,cb.readData());
+        }
+        assertEquals("Z",cb.readData());
+        assertTrue(cb.isEmpty());
+
+    }
+
 }

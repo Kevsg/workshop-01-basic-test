@@ -1,6 +1,5 @@
 public class CircularBuffer {
 
-    private int bufferSize = 11;
     private String[] buffer;
     private int readPointer = 0;
     private int writePointer = 0;
@@ -33,15 +32,15 @@ public class CircularBuffer {
     }
 
     private void incrementReadPointer() {
-        readPointer = (readPointer + 1) % bufferSize;
+        readPointer = (readPointer + 1) % buffer.length;
     }
 
     private void incrementWritePointer() {
-        writePointer = (writePointer + 1) % bufferSize;
+        writePointer = (writePointer + 1) % buffer.length;
     }
 
     private int decrementPointer(int pointer) {
-        return (pointer + bufferSize - 1) % bufferSize;
+        return (pointer + buffer.length - 1) % buffer.length;
     }
 
     public void setSize(int i) {
