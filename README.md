@@ -8,3 +8,4 @@
 * set_size_should_be_able_to_handle_more_data
 * read_when_empty_should_throw
 * init_buffer_with_different_size_should_be_empty
+* different_size_buffer_work_be_fillable

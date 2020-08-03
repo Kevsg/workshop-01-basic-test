@@ -119,4 +119,15 @@ public class CircularBufferTest {
         assertTrue(cb.isEmpty());
     }
 
+    @Test
+    public void different_size_buffer_work_be_fillable() throws Exception {
+        CircularBuffer cb = new CircularBuffer(5);
+        for(int i=0;i<5;i++) {
+            assertTrue(cb.writeData("A"+i));
+        }
+        assertTrue(cb.isFull());
+        assertEquals("A0",cb.readData());
+        assertFalse(cb.isFull());
+    }
+
 }
