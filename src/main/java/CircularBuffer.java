@@ -24,6 +24,7 @@ public class CircularBuffer {
     }
 
     public String readData() {
+        this.bufferSize--;
         return this.buffer[readPointer++];
     }
 }

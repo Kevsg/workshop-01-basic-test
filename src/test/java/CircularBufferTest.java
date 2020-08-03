@@ -13,7 +13,7 @@ public class CircularBufferTest {
     public void create_new_buffer_with_default_size_should_10() {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
-            cb.writeData("A"+i);
+            cb.writeData("A");
         }
         boolean result = cb.isFull();
         assertTrue("Buffer is not full",result);
@@ -26,5 +26,18 @@ public class CircularBufferTest {
         assertEquals("A", cb.readData());
         assertEquals("B", cb.readData());
     }
+    @Test
+    public void read_data_in_full_buffer_should_make_it_not_full() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A"+i);
+        }
+        boolean result = cb.isFull();
+        assertTrue("Buffer is not full",result);
+        cb.readData();
+        result = cb.isFull();
+        assertFalse("Buffer is full",result);
+    }
+
 
 }
