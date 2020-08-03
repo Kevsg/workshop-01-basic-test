@@ -8,6 +8,10 @@ public class CircularBuffer {
         this.buffer = new String[11];
     }
 
+    public CircularBuffer(int size) {
+        this.buffer = new String[size+1];
+    }
+
     public boolean isEmpty() {
         return readPointer == writePointer;
     }

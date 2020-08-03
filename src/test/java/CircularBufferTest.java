@@ -113,4 +113,10 @@ public class CircularBufferTest {
         cb.readData();
     }
 
+    @Test
+    public void init_buffer_with_different_size_should_be_empty() {
+        CircularBuffer cb = new CircularBuffer(5);
+        assertTrue(cb.isEmpty());
+    }
+
 }
