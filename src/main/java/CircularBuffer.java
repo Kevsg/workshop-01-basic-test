@@ -1,30 +1,51 @@
 public class CircularBuffer {
 
-    private int bufferSize = 10;
+    private int bufferSize = 11;
     private String[] buffer;
-    private int readPointer;
-    private int writePointer;
+    private int readPointer = 0;
+    private int writePointer = 0;
 
     //default constructor
     public CircularBuffer() {
-        this.buffer = new String[10];
+        this.buffer = new String[11];
     }
 
     public boolean isEmpty() {
-        return bufferSize == 10;
+        return readPointer == writePointer;
     }
 
     public void writeData(String input) {
-        bufferSize--;
-        this.buffer[writePointer++] = input;
+        this.buffer[writePointer] = input;
+        incrementWritePointer();
     }
 
     public boolean isFull() {
-        return bufferSize == 0;
+        return decrementPointer(readPointer) == writePointer;
     }
 
     public String readData() {
-        this.bufferSize++;
-        return this.buffer[readPointer++];
+        String s =  this.buffer[readPointer];
+        incrementReadPointer();
+        return s;
+    }
+
+    private void incrementReadPointer() {
+        readPointer = (readPointer + 1) % bufferSize;
+    }
+
+    private void incrementWritePointer() {
+        writePointer = (writePointer + 1) % bufferSize;
+    }
+
+    private int decrementPointer(int pointer) {
+        return (pointer + bufferSize - 1) % bufferSize;
+    }
+
+    public int getWritePointer() {
+        return this.writePointer;
+    }
+
+    public int getReadPointer() {
+        return this.readPointer;
     }
 }

@@ -30,7 +30,7 @@ public class CircularBufferTest {
     public void read_data_in_full_buffer_should_make_it_not_full() {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
-            cb.writeData("A"+i);
+            cb.writeData("A");
         }
         boolean result = cb.isFull();
         assertTrue("Buffer is not full",result);
@@ -45,5 +45,16 @@ public class CircularBufferTest {
         cb.writeData("a");
         cb.readData();
         assertTrue(cb.isEmpty());
+    }
+
+    @Test
+    public void buffer_should_be_able_to_handle_more_than_10() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A");
+            cb.readData();
+        }
+        cb.writeData("B");
+        assertEquals("B",cb.readData());;
     }
 }
