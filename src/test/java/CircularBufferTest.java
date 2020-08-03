@@ -57,4 +57,17 @@ public class CircularBufferTest {
         cb.writeData("B");
         assertEquals("B",cb.readData());;
     }
+
+    @Test
+    public void buffer_that_become_full_again_should_return_full() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A");
+
+        }
+        cb.readData();
+        cb.writeData("B");
+        assertTrue(cb.isFull());
+    }
+
 }

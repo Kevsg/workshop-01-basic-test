@@ -5,7 +5,6 @@ public class CircularBuffer {
     private int readPointer = 0;
     private int writePointer = 0;
 
-    //default constructor
     public CircularBuffer() {
         this.buffer = new String[11];
     }
@@ -41,11 +40,4 @@ public class CircularBuffer {
         return (pointer + bufferSize - 1) % bufferSize;
     }
 
-    public int getWritePointer() {
-        return this.writePointer;
-    }
-
-    public int getReadPointer() {
-        return this.readPointer;
-    }
 }
