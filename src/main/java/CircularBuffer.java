@@ -7,7 +7,7 @@ public class CircularBuffer {
 
     //default constructor
     public CircularBuffer() {
-        this. buffer = new String[10];
+        this.buffer = new String[10];
     }
 
     public boolean isEmpty() {
@@ -24,7 +24,7 @@ public class CircularBuffer {
     }
 
     public String readData() {
-        this.bufferSize--;
+        this.bufferSize++;
         return this.buffer[readPointer++];
     }
 }

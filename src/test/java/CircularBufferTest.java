@@ -39,5 +39,11 @@ public class CircularBufferTest {
         assertFalse("Buffer is full",result);
     }
 
-
+    @Test
+    public void write_and_read_should_make_buffer_empty() {
+        CircularBuffer cb = new CircularBuffer();
+        cb.writeData("a");
+        cb.readData();
+        assertTrue(cb.isEmpty());
+    }
 }
