@@ -44,4 +44,11 @@ public class CircularBuffer {
         return (pointer + bufferSize - 1) % bufferSize;
     }
 
+    public void setSize(int i) {
+        String[] newBuffer = new String[i+1];
+        for(i =0 ;i<buffer.length;i++) {
+            newBuffer[i] = buffer[i];
+        }
+        buffer = newBuffer;
+    }
 }

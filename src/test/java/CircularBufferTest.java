@@ -79,4 +79,14 @@ public class CircularBufferTest {
         assertFalse(cb.writeData("B"));
     }
 
+    @Test
+    public void set_size_should_give_the_same_data() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A"+i);
+        }
+        cb.setSize(15);
+        assertEquals("A0",cb.readData());
+    }
+
 }

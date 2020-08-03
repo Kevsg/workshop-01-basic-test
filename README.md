@@ -4,3 +4,4 @@
 * buffer_should_be_able_to_handle_more_than_10
 * buffer_that_become_full_again_should_return_full
 * insert_data_in_full_buffer_should_false
+* set_size_should_give_the_same_data
