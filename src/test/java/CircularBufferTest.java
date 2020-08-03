@@ -70,4 +70,13 @@ public class CircularBufferTest {
         assertTrue(cb.isFull());
     }
 
+    @Test
+    public void insert_data_in_full_buffer_should_false() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0;i<10;i++) {
+            cb.writeData("A");
+        }
+        assertFalse(cb.writeData("B"));
+    }
+
 }

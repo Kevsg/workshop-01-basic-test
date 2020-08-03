@@ -13,9 +13,13 @@ public class CircularBuffer {
         return readPointer == writePointer;
     }
 
-    public void writeData(String input) {
+    public boolean writeData(String input) {
+        if(isFull()) {
+            return false;
+        }
         this.buffer[writePointer] = input;
         incrementWritePointer();
+        return true;
     }
 
     public boolean isFull() {
