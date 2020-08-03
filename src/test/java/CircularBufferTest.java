@@ -3,6 +3,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CircularBufferTest {
+
+
     @Test
     public void create_new_buffer_should_empty() {
         CircularBuffer cb = new CircularBuffer();
@@ -19,7 +21,7 @@ public class CircularBufferTest {
         assertTrue("Buffer is not full",result);
     }
     @Test
-    public void write_A_B_to_buffer_should_read_A_B() {
+    public void write_A_B_to_buffer_should_read_A_B() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         cb.writeData("A");
         cb.writeData("B");
@@ -27,7 +29,7 @@ public class CircularBufferTest {
         assertEquals("B", cb.readData());
     }
     @Test
-    public void read_data_in_full_buffer_should_make_it_not_full() {
+    public void read_data_in_full_buffer_should_make_it_not_full() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
             cb.writeData("A");
@@ -40,7 +42,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void write_and_read_should_make_buffer_empty() {
+    public void write_and_read_should_make_buffer_empty() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         cb.writeData("a");
         cb.readData();
@@ -48,7 +50,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void buffer_should_be_able_to_handle_more_than_10() {
+    public void buffer_should_be_able_to_handle_more_than_10() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
             cb.writeData("A");
@@ -59,7 +61,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void buffer_that_become_full_again_should_return_full() {
+    public void buffer_that_become_full_again_should_return_full() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
             cb.writeData("A");
@@ -80,7 +82,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void set_size_should_give_the_same_data() {
+    public void set_size_should_give_the_same_data() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
             cb.writeData("A"+i);
@@ -90,7 +92,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void set_size_should_be_able_to_handle_more_data() {
+    public void set_size_should_be_able_to_handle_more_data() throws Exception {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0;i<10;i++) {
             cb.writeData("A"+i);
@@ -103,7 +105,12 @@ public class CircularBufferTest {
         }
         assertEquals("Z",cb.readData());
         assertTrue(cb.isEmpty());
+    }
 
+    @Test(expected = Exception.class)
+    public void read_when_empty_should_throw() throws Exception {
+        CircularBuffer cb = new CircularBuffer();
+        cb.readData();
     }
 
 }

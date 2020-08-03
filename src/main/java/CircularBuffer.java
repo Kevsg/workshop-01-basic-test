@@ -25,7 +25,10 @@ public class CircularBuffer {
         return decrementPointer(readPointer) == writePointer;
     }
 
-    public String readData() {
+    public String readData() throws Exception {
+        if(isEmpty()) {
+            throw new Exception("No data in buffer");
+        }
         String s =  this.buffer[readPointer];
         incrementReadPointer();
         return s;
