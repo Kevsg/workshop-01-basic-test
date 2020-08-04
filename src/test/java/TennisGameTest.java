@@ -66,7 +66,7 @@ public class TennisGameTest {
         });
     }
 
-    public void checkAllScores(TennisGame game) {
+    public void checkAllScores(TennisGame game) throws Exception {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
@@ -78,7 +78,7 @@ public class TennisGameTest {
     }
 
     @Test
-    public void checkAllScoresTennisGame2() {
+    public void checkAllScoresTennisGame2() throws Exception {
         TennisGame game = new TennisGame("player1", "player2");
         checkAllScores(game);
     }

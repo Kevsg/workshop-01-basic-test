@@ -10,7 +10,7 @@ public class TennisGame {
         this.player2Name = player2Name;
     }
 
-    public String getScore() {
+    public String getScore() throws Exception {
         String player1Result;
         String player2Result;
         String score;
@@ -50,9 +50,12 @@ public class TennisGame {
             p2Score();
     }
 
-    private String getWordFromScore(int score) {
+    private String getWordFromScore(int score) throws Exception {
         String word;
         switch (score) {
+            case 0:
+                word = "Love";
+                break;
             case 1:
                 word = "Fifteen";
                 break;
@@ -63,8 +66,7 @@ public class TennisGame {
                 word = "Forty";
                 break;
             default:
-                word = "Love";
-                break;
+                throw new Exception("Invalid input for getWordFromScore");
         }
         return word;
     }
