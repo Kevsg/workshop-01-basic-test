@@ -31,3 +31,9 @@
 * TC11 => read_when_empty_should_throw
 * TC12 => init_buffer_with_different_size_should_be_empty
 * TC13 => different_size_buffer_work_be_fillable
+
+
+### 5.Refactor
+* ตอนแปลงคะแนนเป็นคำให้เรียกใช้ function
+* ใช้ else if และแก้ condition ให้เหตุการณ์ไม่เกี่ยวข้องกัน
+* ยุบ case ที่ให้ result เหมือนกัน เป็น else
